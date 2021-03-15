@@ -30,7 +30,7 @@
                     JOIN types t ON v.type_id = t.type_id
                     JOIN classes c ON v.class_id = c.class_id";
 
-        $sortby_str = " ORDER BY price DESC";
+        $sortby_str = " ORDER BY v.price DESC";
         if($sortby === "year") {
             $sortby_str = " ORDER BY year DESC";
         }
