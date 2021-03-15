@@ -15,4 +15,4 @@
         require("view/error.php");
         exit();
     }
-    //mysql://s2ilysepthbq9vs3:hj4nsnucuymqulng@pxukqohrckdfo4ty.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/fz8vpml43i4puewj
+  

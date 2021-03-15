@@ -24,7 +24,7 @@
     function vehicles_read($make_id, $type_id, $class_id, $sortby) {
         global $db;
 
-        $query = "SELECT vehicle_id, m.name make, t.name type, c.name class, model, year, price
+        $query = "SELECT vehicle_id, m.name make, t.name type, c.name class, model, year, concat('$', format(price, 2)) price
                     FROM vehicles v 
                     JOIN makes m ON v.make_id = m.make_id
                     JOIN types t ON v.type_id = t.type_id
