@@ -7,9 +7,6 @@
     $password = $dbparts['pass'];
     $database = ltrim($dbparts['path'],'/');
 
-    $dsn = "mysql:host=localhost;dbname=zippyusedautos";
-    $username = "root";
-
     try {
         $db = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
     } catch (PDOException $e) {
