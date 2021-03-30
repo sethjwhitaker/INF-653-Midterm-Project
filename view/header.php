@@ -11,4 +11,20 @@
     <main class="container mb-5">
         <header class="pb-2 mt-4 mb-2 border-bottom">
             <h1>Zippy Used Autos</h1>
+            <?php 
+                if($action != "register" && !isset($_SESSION["user_id"])) {
+            ?>
+                    <a href=".?action=register">Register</a>
+            <?php
+                } else if($action != "register" && $action != "logout" && isset($_SESSION["user_id"])) {
+            ?>
+                    <p>
+                        Welcome <?= $_SESSION["user_id"] ?>! 
+                        (<a href=".?action=logout">Logout</a>)
+                    </p>
+                    
+            <?php
+                }
+            ?>
+            
         </header>
