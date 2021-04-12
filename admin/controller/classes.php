@@ -7,7 +7,7 @@
         case "view-classes":
             $classes = class_read();
 
-            require("view/edit_classes.php");
+            require("view/vehicles/edit_classes.php");
             break;
         case "delete-class":
             if($class_id) {

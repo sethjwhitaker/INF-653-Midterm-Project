@@ -38,6 +38,6 @@
             $makes = make_read();
             $types = type_read();
             $classes = class_read();
-            require("view/add_vehicle.php");
+            require("view/vehicles/add_vehicle.php");
             break;
         }

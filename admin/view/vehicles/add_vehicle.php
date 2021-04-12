@@ -26,10 +26,6 @@
         <br>
         <button class="btn-primary" type="submit">Add</button>
     </form>
-    <a href=".">Back to Vehicles</a><br>
-    <a href=".?action=view-makes">Edit Makes</a><br>
-    <a href=".?action=view-types">Edit Types</a><br>
-    <a href=".?action=view-classes">Edit Classes</a><br>
 </section>
 
 <?php

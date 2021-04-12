@@ -7,7 +7,7 @@
         case "view-types":
             $types = type_read();
 
-            require("view/edit_types.php");
+            require("view/vehicles/edit_types.php");
             break;
         case "delete-type":
             if($type_id) {

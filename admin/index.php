@@ -4,6 +4,7 @@
     require("../model/types.php");
     require("../model/classes.php");
     require("../model/vehicles.php");
+    require("../model/admin_db.php");
 
     $action = filter_input(INPUT_POST, "action",  FILTER_SANITIZE_STRING);
     if(!$action) {
@@ -29,3 +30,4 @@
     require("./controller/types.php");
     require("./controller/vehicles.php");
     require("./controller/classes.php");
+    require("./controller/admin.php");

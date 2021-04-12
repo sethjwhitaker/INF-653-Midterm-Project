@@ -7,7 +7,7 @@
         case "view-makes":
             $makes = make_read();
 
-            require("view/edit_makes.php");
+            require("view/vehicles/edit_makes.php");
             break;
         case "delete-make":
             if($make_id) {
