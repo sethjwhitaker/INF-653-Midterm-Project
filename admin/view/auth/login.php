@@ -25,10 +25,10 @@
         <input type="hidden" name="action" value="login">
 
         <label for="username">User Name</label>   
-        <input class="form-control" type="text" name="username" id="username" required>
+        <input class="form-control" type="text" name="username" id="username" autocomplete="username" required>
         <br>
         <label for="password">Password</label>
-        <input class="form-control" type="password" name="password" id="password" required>
+        <input class="form-control" type="password" name="password" id="password" autocomplete="current-password" required>
         <br>
         <button class="btn-primary" type="submit">Login</button>
     </form>

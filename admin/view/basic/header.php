@@ -1,5 +1,5 @@
 <?php
-    //require_once("util/valid_admin.php");
+    require_once("util/valid_admin.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,4 +14,7 @@
     <main class="container mb-5">
         <header class="pb-2 mt-4 mb-2 border-bottom">
             <h1>Zippy Admin</h1>
+            <?php if(isset($_SESSION["is_valid_admin"])) { ?>
+                <a href=".?action=logout">Logout</a>
+            <?php } ?>
         </header>

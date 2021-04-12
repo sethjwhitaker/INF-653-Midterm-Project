@@ -7,6 +7,7 @@
     switch($action) {
         case "login":
             if(empty($username) && empty($password)) {
+                $login_message = "You must login to view this page.";
                 require("view/auth/login.php");
             } else if(admin_login_is_valid($username, $password)) {
                 unset($login_message);
@@ -35,6 +36,9 @@
             require("view/auth/register.php");
             break;
         case "logout":
-
+            unset($_SESSION["is_valid_admin"]);
+            session_destroy();
+            $login_message = "You must login to view this page.";
+            require("view/auth/login.php");
             break;
     }

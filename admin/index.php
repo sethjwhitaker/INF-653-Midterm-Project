@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     require("../model/database.php");
     require("../model/makes.php");
     require("../model/types.php");
