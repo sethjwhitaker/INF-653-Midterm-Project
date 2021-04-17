@@ -30,10 +30,10 @@
 
     switch ($action) {
         case "home":
-            $makes = make_read();
-            $types = type_read();
-            $classes = class_read();
-            $vehicles = vehicles_read($make_id, $type_id, $class_id, $sort_by);
+            $makes = MakesDB::read();
+            $types = TypesDB::read();
+            $classes = ClassesDB::read();
+            $vehicles = VehiclesDB::read($make_id, $type_id, $class_id, $sort_by);
             require("./view/home.php");
             break;
         case "register":

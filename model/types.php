@@ -1,6 +1,8 @@
 <?php
-    function type_create($name) {
-        global $db;
+
+class TypesDB {
+    public static function create($name) {
+        $db = Database::getDB();
 
         $count = 0;
         $query = "INSERT INTO types (name)
@@ -15,8 +17,8 @@
         return $count;
     }
 
-    function type_read() {
-        global $db;
+    public static function read() {
+        $db = Database::getDB();
 
         $query = "SELECT * FROM types ORDER BY name";
 
@@ -28,8 +30,8 @@
         return $results;
     }
 
-    function type_update($id, $name) {
-        global $db;
+    public static function update($id, $name) {
+        $db = Database::getDB();
 
         $count = 0;
         $query = "UPDATE types SET name = :name
@@ -45,8 +47,8 @@
         return $count;
     }
 
-    function type_delete($id) {
-        global $db;
+    public static function delete($id) {
+        $db = Database::getDB();
 
         $count = 0;
         $query = "DELETE FROM types WHERE type_id = :id";
@@ -59,3 +61,4 @@
         $statement->closeCursor();
         return $count;
     }
+}

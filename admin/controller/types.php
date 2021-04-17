@@ -5,13 +5,13 @@
 
     switch($action) {
         case "view-types":
-            $types = type_read();
+            $types = TypesDB::read();
 
             require("view/vehicles/edit_types.php");
             break;
         case "delete-type":
             if($type_id) {
-                type_delete($type_id);
+                TypesDB::delete($type_id);
                 header("Location: .?action=view-types");
             } else {
                 $error_message = "Error removing type. Please try again.";
@@ -20,7 +20,7 @@
             break;
         case "create-type":
             if($name) {
-                type_create($name);
+                TypesDB::create($name);
                 header("Location: .?action=view-types");
             } else {
                 $error_message = "Error creating type. Please try again.";

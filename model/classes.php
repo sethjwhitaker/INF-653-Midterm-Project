@@ -1,6 +1,8 @@
 <?php
-    function class_create($name) {
-        global $db;
+
+class ClassesDB {
+    public static function create($name) {
+        $db = Database::getDB();
 
         $count = 0;
         $query = "INSERT INTO classes (name)
@@ -15,8 +17,8 @@
         return $count;
     }
 
-    function class_read() {
-        global $db;
+    public static function read() {
+        $db = Database::getDB();
 
         $query = "SELECT * FROM classes ORDER BY name";
 
@@ -28,8 +30,8 @@
         return $results;
     }
 
-    function class_update($id, $name) {
-        global $db;
+    public static function update($id, $name) {
+        $db = Database::getDB();
 
         $count = 0;
         $query = "UPDATE classes SET name = :name
@@ -45,8 +47,8 @@
         return $count;
     }
 
-    function class_delete($id) {
-        global $db;
+    public static function delete($id) {
+        $db = Database::getDB();
 
         $count = 0;
         $query = "DELETE FROM classes WHERE class_id = :id";
@@ -59,3 +61,5 @@
         $statement->closeCursor();
         return $count;
     }
+}
+   

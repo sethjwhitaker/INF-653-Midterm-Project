@@ -1,7 +1,10 @@
 <?php
-    function vehicles_create($make_id, $type_id, $class_id, $model, $year, $price) {
-        global $db;
 
+class VehiclesDB {
+
+    public static function create($make_id, $type_id, $class_id, $model, $year, $price) {
+        $db = Database::getDB();
+        
         $count = 0;
         $query = "INSERT INTO vehicles (make_id, type_id, class_id, model, year, price)
                     VALUES (:make_id, :type_id, :class_id, :model, :year, :price)";
@@ -21,9 +24,9 @@
         return $count;
     }
 
-    function vehicles_read($make_id, $type_id, $class_id, $sortby) {
-        global $db;
-
+    public static function read($make_id, $type_id, $class_id, $sortby) {
+        $db = Database::getDB();
+        
         $query = "SELECT vehicle_id, m.name make, t.name type, c.name class, model, year, concat('$', format(price, 2)) price
                     FROM vehicles v 
                     JOIN makes m ON v.make_id = m.make_id
@@ -61,9 +64,9 @@
         return $results;
     }
 
-    function vehicles_delete($id) {
-        global $db;
-
+    public static function delete($id) {
+        $db = Database::getDB();
+        
         $count = 0;
         $query = "DELETE FROM vehicles WHERE vehicle_id = :id";
 
@@ -75,3 +78,5 @@
         $statement->closeCursor();
         return $count;
     }
+
+}

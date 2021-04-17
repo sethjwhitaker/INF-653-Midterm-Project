@@ -9,7 +9,7 @@
             if(empty($username) && empty($password)) {
                 $login_message = "You must login to view this page.";
                 require("view/auth/login.php");
-            } else if(admin_login_is_valid($username, $password)) {
+            } else if(AdminDB::login_is_valid($username, $password)) {
                 unset($login_message);
                 $_SESSION["is_valid_admin"] = true;
                 header("Location: .?action=view-vehicles");
@@ -23,11 +23,14 @@
             break;
         case "register":
             require("util/valid_register.php");
-            $errors = valid_registration($username,$password,$confirm_password);
+            $errors = ValidRegistration::valid_registration($username,$password,$confirm_password);
+            if (AdminDB::username_exists($username)) {
+                array_push($errors, "The username you entered is already taken.");
+            }
             if(!empty($errors)) {
                 require("view/auth/register.php");
             } else {
-                admin_create($username, $password);
+                AdminDB::create($username, $password);
                 $_SESSION["is_valid_admin"] = true;
                 header("Location: .?action=view-vehicles");
             }

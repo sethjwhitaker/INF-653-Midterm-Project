@@ -1,6 +1,8 @@
 <?php
-    function make_create($name) {
-        global $db;
+
+class MakesDB {
+    public static function create($name) {
+        $db = Database::getDB();
 
         $count = 0;
         $query = "INSERT INTO makes (name)
@@ -15,8 +17,8 @@
         return $count;
     }
 
-    function make_read() {
-        global $db;
+    public static function read() {
+        $db = Database::getDB();
 
         $query = "SELECT * FROM makes ORDER BY name";
 
@@ -28,8 +30,8 @@
         return $results;
     }
 
-    function make_update($id, $name) {
-        global $db;
+    public static function update($id, $name) {
+        $db = Database::getDB();
 
         $count = 0;
         $query = "UPDATE makes SET name = :name
@@ -45,8 +47,8 @@
         return $count;
     }
 
-    function make_delete($id) {
-        global $db;
+    public static function delete($id) {
+        $db = Database::getDB();
 
         $count = 0;
         $query = "DELETE FROM makes WHERE make_id = :id";
@@ -59,3 +61,4 @@
         $statement->closeCursor();
         return $count;
     }
+}

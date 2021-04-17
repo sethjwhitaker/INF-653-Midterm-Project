@@ -11,15 +11,15 @@
 
     switch($action) {
         case "view-vehicles":
-            $makes = make_read();
-            $types = type_read();
-            $classes = class_read();
-            $vehicles = vehicles_read($make_id, $type_id, $class_id, $sort_by);
+            $makes = MakesDB::read();
+            $types = TypesDB::read();
+            $classes = ClassesDB::read();
+            $vehicles = VehiclesDB::read($make_id, $type_id, $class_id, $sort_by);
             require("view/admin/admin.php");
             break;
         case "delete-vehicle":
             if($vehicle_id) {
-                vehicles_delete($vehicle_id);
+                VehiclesDB::delete($vehicle_id);
                 header("Location: .?action=view-vehicles");
             } else {
                 $error_message = "Error removing vehicle. Please try again.";
@@ -27,7 +27,7 @@
             }
             break;
         case "create-vehicle":
-            if(!vehicles_create($make_id, $type_id, $class_id, $model, $year, $price)) {
+            if(!VehiclesDB::create($make_id, $type_id, $class_id, $model, $year, $price)) {
                 $error_message = "Error creating vehicle. Please try again.";
                 require("view/error.php");
             } else {
@@ -35,9 +35,9 @@
             }
             break;
         case "add-vehicle-page":
-            $makes = make_read();
-            $types = type_read();
-            $classes = class_read();
+            $makes = MakesDB::read();
+            $types = TypesDB::read();
+            $classes = ClassesDB::read();
             require("view/vehicles/add_vehicle.php");
             break;
         }

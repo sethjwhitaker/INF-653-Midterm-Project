@@ -5,13 +5,13 @@
 
     switch($action) {
         case "view-makes":
-            $makes = make_read();
+            $makes = MakesDB::read();
 
             require("view/vehicles/edit_makes.php");
             break;
         case "delete-make":
             if($make_id) {
-                make_delete($make_id);
+                MakesDB::delete($make_id);
                 header("Location: .?action=view-makes");
             } else {
                 $error_message = "Error removing make. Please try again.";
@@ -20,7 +20,7 @@
             break;
         case "create-make":
             if($name) {
-                make_create($name);
+                MakesDB::create($name);
                 header("Location: .?action=view-makes");
             } else {
                 $error_message = "Error creating make. Please try again.";
